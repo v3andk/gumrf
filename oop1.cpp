@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include <iomanip>
 #include  <algorithm>
-
+//Какие-то комментарии к коду
 class Array {
 public:
 	using Iterator = double*;
