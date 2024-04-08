@@ -1,0 +1,63 @@
+#include <iostream>
+#include <algorithm>
+
+int task(int n) {
+if (n <= 0) {
+std::cout << "Размер массива должен быть положительным числом" << std::endl;
+return 0.;
+}
+
+double* arr = new double[n];
+
+for (int i = 0; i < n; i++) {
+std::cin >> arr[i];
+}
+
+int positiveFirstIndex = -1;
+int positiveLastIndex = -1;
+
+for (int i = 0; i < n; i++) {
+double target = arr[i];
+if (target <= 0) continue;
+if (positiveFirstIndex == -1) {
+positiveFirstIndex = i;
+continue;
+}
+positiveLastIndex = i;
+}
+
+if (positiveFirstIndex == -1) {
+std::cout << "Отсутствуют положительные числа" << std::endl;
+return 0.;
+}
+
+if (positiveLastIndex == -1) {
+std::cout << "Отсутствует 2 положительное число" << std::endl;
+return 0.;
+}
+
+if (positiveFirstIndex == positiveLastIndex) {
+std::cout << "Максимальный и минимальный элемент - один и тот же элемент" << std::endl;
+return 0.;
+}
+
+double sum = 0;
+
+for (int i = positiveFirstIndex + 1; i < positiveLastIndex; i++) {
+double target = arr[i];
+sum += target;
+}
+
+delete[] arr;
+return sum;
+}
+
+int main()
+{
+setlocale(LC_ALL, "Russian");
+int n;
+std::cin >> n;
+double result = task(n);
+std::cout << result;
+return 0;
+} 
