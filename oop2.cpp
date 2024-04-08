@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <string>
 #include <iomanip>
-
+//Какие-то комментарии к коду
 template <class T>
 class Array {
 public:
